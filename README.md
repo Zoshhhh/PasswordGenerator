@@ -43,5 +43,5 @@ To see how adjustments in settings affect the password, change the options provi
 
 ## Demo
 
-Check out the live demo !
+Check out the live [demo](https://password-generator-sigma-nine.vercel.app/) !
 
