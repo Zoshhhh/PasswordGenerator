@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <form id="passwordGeneratorForm">
+            <div class="form-group">
+                <label for="length">Password length:</label>
+                <input type="number" id="length" name="length" min="8" max="128" value="12" onchange="generatePassword()">
+            </div>
+            <div class="form-group checkbox-inline">
+                <input type="checkbox" id="uppercase" name="uppercase" onchange="generatePassword()">
+                <label for="uppercase">Include uppercase</label>
+            </div>
+            <div class="form-group checkbox-inline">
+                <input type="checkbox" id="numbers" name="numbers" onchange="generatePassword()">
+                <label for="numbers">Include numbers</label>
+            </div>
+            <div class="form-group checkbox-inline">
+                <input type="checkbox" id="symbols" name="symbols" onchange="generatePassword()">
+                <label for="symbols">Include symbols</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="result" readonly>
+                <button type="button" id="copyButton" onclick="copyToClipboard()">Copy</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        function generatePassword() {
+            const length = document.getElementById('length').value;
+            const hasUppercase = document.getElementById('uppercase').checked;
+            const hasNumbers = document.getElementById('numbers').checked;
+            const hasSymbols = document.getElementById('symbols').checked;
+        
+            const numbers = '0123456789';
+            const symbols = '!@#$%^&*()_+=-{}[]:";\'<>?,./|\\';
+            const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+            const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        
+            let characters = lowercaseLetters;
+            if (hasUppercase) characters += uppercaseLetters;
+            if (hasNumbers) characters += numbers;
+            if (hasSymbols) characters += symbols;
+        
+            let password = '';
+            for (let i = 0; i < parseInt(length); i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+            document.getElementById('result').value = password;
+        }
+
+        function copyToClipboard() {
+            const passwordField = document.getElementById('result');
+            passwordField.select(); // Sélectionne le texte à copier
+            document.execCommand('copy'); // Exécute la commande de copie
+            alert('Mot de passe copié dans le presse-papiers!'); // Notification à l'utilisateur
+        }
+    </script>
+</body>
+</html>

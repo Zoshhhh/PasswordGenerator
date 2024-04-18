@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.container {
+    background-color: rgb(56, 56, 56);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex; 
+    align-items: center; 
+}
+
+
+input[type="number"] {
+    width: 50%; 
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    flex-grow: 1; 
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 5px; 
+}
+
+label.checkbox-inline {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+button#copyButton {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+label {
+    margin-bottom: 0; 
+    display: flex; 
+    align-items: center;
+}
